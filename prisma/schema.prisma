@@ -11,7 +11,14 @@ generator client {
 }
 
 model Usuario {
-  id String @id
-  nome String
-  email String
+  id     Int  @id @default(autoincrement())
+  nome   String
+  email  String
+  grupos Group[]
+}
+
+model Group {
+  id      Int @id @default(autoincrement())
+  titulo  String
+  membros Usuario[]
 }
